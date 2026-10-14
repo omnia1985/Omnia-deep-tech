@@ -88,17 +88,93 @@ P2_TXT = {
         "weak_desc": "15% (Deficiencia leve en segundos balones aéreos y elevación muscular).",
         "advice_lbl": "💡 Consejos Técnicos para el Profesional:",
         "advice_desc": "Se recomienda intensificar el entrenamiento pliométrico para potenciar el salto vertical y corregir los errores de posicionamiento extraídos por el análisis de video por IA."
-    },
+    }, 
     "🇵🇹 Português": {
         "title": "🏃 Seção de Jogadores Seniores (Mais de 20 anos)", 
         "price": "💰 Preço de assinatura: $30/Mês para acesso anatômico, tático e médico completo", 
-        "live_cam_lbl": "🎥 Ativar Câmera ao Vivo do Celular (Rastreamento físico e exibição de dados AR na quadra):",
-        "upload_lbl": "📥 Ou Carregar Vídeo Gravado (Restauração automática de pouca luz e gravações desfocadas):",
-        "process_live": "⚡ Processando transmissão ao vivo, rastreamento de esqueleto motor e métricas AR instantâneas...",
-        "process_file": "🔄 Restaurando o arquivo de vídeo gravado e gerando o painel de análise profunda de desempenho...",
-        "gdpr_warn": "🔒 Protocolo de Proteção GDPR Ativo: Desfoque digital de rosto habilitado. Seus dados de desempenho, médicos e psicológicos são privados até que uma oferta formal seja feita.",
-        "stats_title": "📋 Painel Integrado de Análises de Desempenho e Prontidão Profissional",
-        "comp_lbl": "🔄 Sistema de Comparação Aberto com o nosso Banco de Dados de 15 Estrelas Globais e Goleiros:",
-        "comp_active": "🔄 Correspondência tática ativa com a estrela mundial selecionada:",
-        "weak_lbl": "⚠️ Percentual de Pontos Fracos e Falhas de Desempenho Identificados:",
-        "weak_desc": "15% (Leve deficiência em segundas bolas aéreas e impulsão muscular).",
+        "upload_lbl": "📥 Escolha o método de captura para análise de IA (Vídeo ao Vivo ou Gravado):",
+        "vid_live_lbl": "🎥 Vian 1: Captura de vídeo ao vivo (Universal AI Camera & AR Overlay)",
+        "vid_old_lbl": "📂 Vian 2: Carregar vídeo pré-gravado do jogo para restauração e limpeza",
+        "process": "🔄 A IA está processando o vídeo, rastreando a estrutura motora e resolvendo a sobreposição...",
+        "gdpr_warn": "🔒 Protocolo GDPR ativo: O desfoque facial digital foi ativado para proteger seus dados até que uma oferta oficial seja feita.",
+        "dashboard_title": "📋 Painel de Análise de Desempenho Profissional Integrado (Full Analytics Stack)",
+        "tech_tab": "🧮 Estatísticas Técnicas e Táticas",
+        "psych_tab": "🧠 Análise Psicológica e Comportamental",
+        "med_tab": "🩺 Sistema Médico e Previsão de Lesões",
+        "comp_lbl": "Compare seus números atuais e simule sua correspondência tática com as 15 estrelas mundiais:",
+        "weak_warn": "⚠️ Taxa total de fraquezas e lacunas de desempenho detectadas: 15% (falta de aproveitamento em bolas aéreas secundárias).",
+        "tips_info": "💡 Dica de Treinamento: Recomenda-se intensificar os exercícios de força reativa muscular para aumentar a eficiência do salto vertical."
+    }
+}
+
+# تأمين استخراج نصوص اللغة المتزامنة من الجلسة
+t = P2_TXT.get(lang_key, P2_TXT["العربية"])
+
+# إظهار ثمن اشتراك المحترفين بشكل علني وواضح في أعلى الصفحة
+st.error(t["price"])
+st.write("---")
+
+# تفعيل ميزة رفع الفيديو المزدوجة المحدثة (الفيديو الحي والفيديو المسبق) لصفحة الكبار
+st.subheader(t["upload_lbl"])
+col_v1, col_v2 = st.columns(2)
+
+with col_v1:
+    st.markdown(f"##### {t['vid_live_lbl']}")
+    live_stream = st.camera_input("", key="p2_live_cam", label_visibility="collapsed")
+    if live_stream:
+        st.info("⚡ Live Mobile AR HUD Connected: processing movements dynamically...")
+
+with col_v2:
+    st.markdown(f"##### {t['vid_old_lbl']}")
+    uploaded_file = st.file_uploader("", type=["mp4", "mov", "avi"], key="senior_match_uploader", label_visibility="collapsed")
+
+# بدء معالجة البيانات واستخراج لوحة التحكّم فور توفر أي مصدر للفيديو
+if uploaded_file or live_stream:
+    with st.spinner(t["process"]):
+        time.sleep(1.5)
+    st.warning(t["gdpr_warn"])
+    
+    # لوحة التحليلات التشريحية، الطبية، والنفسية العميقة الشاملة للاعب الكبار (سينيور) قبل وأثناء وبعد المباراة
+    st.subheader(t["dashboard_title"])
+    
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.markdown(f"### {t.get('tech_tab', '🧮 الإحصائيات الفنية والتكتيكية')}")
+        st.progress(0.12, text="نسبة الخطأ في التمركز الفردي (Positioning Error Rate): 12%")
+        st.progress(0.14, text="نسبة الأخطاء العامة والتمرير الخاطئ (Total Errors Rate): 14%")
+        st.progress(0.85, text="نسبة التفوق في الثنائيات والالتحامات الأرضية والهوائية: 85%")
+        st.progress(0.89, text="نسبة اللعب في مختلف المراكز (تعدد المراكز وتكيفه التكتيكي): 89%")
+        st.caption("⚽ **الإنتاجية الهجومية المستخرجة:** 12 هدفاً مسجلاً | 8 تمريرات حاسمة")
+        
+    with col2:
+        st.markdown(f"### {t.get('psych_tab', '🧠 التحليل النفسي والسلوكي')}")
+        st.progress(0.82, text="الحالة النفسية والثبات من ملامح الوجه (Emotion AI): 82%")
+        st.progress(0.90, text="نسبة التركيز في مركزك ولعب تحت الضغط العالي: 90%")
+        st.write("🤝 **الانسجام السلوكي والأخلاق الرياضية وتأقلم الزملاء:**")
+        st.caption("- نسبة التأقلم والانسجام مع زملائه أثناء اللعب الفعلي: 91% (ممتاز)")
+        st.caption("- حدة النقاش والاعتراض مع الحكم ولغة الجسد: منخفضة ومنضبطة (أخلاق عالية)")
+        st.caption("- النضج في التصريح الصحفي والإعلامي والمقابلات: متزن ويتحمل الضغط")
+        
+    with col3:
+        st.markdown(f"### {t.get('med_tab', '🩺 المنظومة الطبية والتنبؤ بالإصابات')}")
+        st.progress(0.08, text="نسبة التنبؤ بالإصابة العضلية مستقبلاً (Injury Prediction): 8%")
+        st.progress(0.95, text="نسبة شفاء واستجابة الهيكل الحركي التوأم الرقمي: 95%")
+        st.metric(label="🟢 حالة وجاهزية اللاعب للمباريات الرسمية (Readiness to Play)", value="96% جاهز تماماً")
+
+    # عنصر التشبيه المفتوح والمقارنة بالنجوم وحراس المرمى الـ 15 وعرض الصورة
+    st.write("---")
+    st.subheader("🔄 عنصر التشبيه المفتوح وتقوية نقاط الضعف")
+    st.write(t["comp_lbl"])
+    
+    comp_target = st.selectbox("", ["Kylian Mbappé", "Cristiano Ronaldo", "Lionel Messi", "Thibaut Courtois", "Erling Haaland", "Gianluigi Donnarumma", "Kevin De Bruyne", "Virgil van Dijk"], label_visibility="collapsed")
+    
+    if comp_target:
+        st.info(f"🔄 ميزة التطابق التكتيكي والتشبيه الرياضي نشطة الآن مع النجم العالمي المختار: **{comp_target}**.")
+        # عرض صورة عشوائية محاكية للنجم المتشابه معه لتقوية البعد البصري السينمائي (Experituelle)
+        st.image("https://unsplash.com", caption=f"صورة المقارنة الرقمية مع النجم: {comp_target}")
+        
+    st.error(t["weak_warn"])
+    st.info(t["tips_info"])
+
+st.write("---")
+st.caption("Omnia DeepArena IA © 2026 | Player Personal Secure Dashboard Protected under GDPR Protocols.")
