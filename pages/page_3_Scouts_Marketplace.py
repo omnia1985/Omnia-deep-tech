@@ -84,3 +84,60 @@ P3_TXT = {
         "f_all_c": "Todos los contratos", "f_sale": "En Venta (For Sale)", "f_loan": "Disponible para Cesión (For Loan)",
         "th_id": "ID Jugador Encriptado", "th_section": "Sección de Destino", "th_status": "Estado contractual", "th_star": "Estrella Global más cercana", "th_value": "Valor de Mercado Estimado", "th_blur": "Estado de Difuminado GDPR"
     },
+    "🇵🇹 Português": {
+        "title": "🔍 Painel de Olheiros, Agentes de Clubes Credenciados e Bolsa de Transferências", 
+        "price": "💰 Preço de assinatura: $50/Mês para acesso total e canais de compra de contrato", 
+        "commission": "🚨 Taxa de Comissão da Plataforma: Uma taxa de 5% a 10% é deduzida automaticamente de transações de Venda ou Empréstimo para blindar os direitos de formação.",
+        "market_title": "🚀 Mercado Global Unificado de Transferências & Contratação Direta",
+        "filter_age": "Filtrar grupos de jogadores por faixa etária e posição:",
+        "filter_contract": "Navegar pela bolsa de acordo com o tipo de contrato comercial desejado:",
+        "btn_negotiate": "💼 Iniciar Negociação Oficial & Comprar Contrato Instantaneamente",
+        "negotiate_success": "⚖️ Conformidade e Proteção GDPR: Canal de negociação encriptado aberto com o clube detentor. Direitos de formação e comissões da bolsa calculados automaticamente.",
+        "alert_title": "📌 Alerte de Segurança para Olheiros e Agentes (GDPR Shield):",
+        "alert_desc": "Os rostos de todos os atletas nas seções 1 e 2 estão protegidos por desfoque digital. O desbloqueio visual ocorre de forma oficial mediante envio de proposta financeira firme pelo canal de compra.",
+        "f_all_p": "Todos os atletas no sistema (Apenas maiores de 16 anos)", "f_p1": "Seção 1: Juvenis Disponíveis (16 a 20 anos)", "f_p2": "Seção 2: Jogadores Seniores Profissionais",
+        "f_all_c": "Todos os contratos", "f_sale": "Para Venda (For Sale)", "f_loan": "Para Empréstimo (For Loan)",
+        "th_id": "ID Atleta Encriptado", "th_section": "Seção Alvo", "th_status": "Status de Mercado", "th_star": "Estrela Global mais próxima", "th_value": "Valore de Mercado Estimado", "th_blur": "Status de Desfoque GDPR"
+    }
+}
+
+lang_key = selected_lang if selected_lang in P3_TXT else "🇸🇦 العربية"
+t = P3_TXT[lang_key]
+
+st.title(t["title"])
+st.error(t["price"]) 
+st.success(t["commission"]) 
+st.sidebar.metric(label="قيمة الاشتراك الحالية", value="50 USD")
+
+st.write("---")
+st.markdown(f"### {t['market_title']}")
+
+# عناصر الفلترة والفرز التكتيكية المفتوحة لكشافة ووكلاء الأندية
+st.selectbox(t["filter_age"], [t["f_all_p"], t["f_p1"], t["f_p2"]])
+st.selectbox(t["filter_contract"], [t["f_all_c"], t["f_sale"], t["f_loan"]])
+
+# 2️⃣ إدراج الجدول الموحد والذكي مع القيمة السوقية والتشبيه (مع حظر من هم دون 16 سنة)
+market_data = [
+    {t["th_id"]: "YOUTH_TALENT_#992", t["th_section"]: "القسم الأول (17 سنة)", t["th_status"]: "متاح للإعارة المؤقتة (For Loan)", t["th_star"]: "Lamine Yamal", t["th_value"]: "1,500,000 USD", t["th_blur"]: "🔒 Blurred (مغشّى)"},
+    {t["th_id"]: "SENIOR_PRO_#402", t["th_section"]: "القسم الثاني (24 سنة)", t["th_status"]: "معروض للبيع الفوري (For Sale)", t["th_star"]: "Kylian Mbappé", t["th_value"]: "45,000,000 USD", t["th_blur"]: "🔒 Blurred (مغشّى)"},
+    {t["th_id"]: "SENIOR_GK_#114", t["th_section"]: "القسم الثاني (22 سنة)", t["th_status"]: "معروض للبيع الفوري (For Sale)", t["th_star"]: "Gianluigi Donnarumma", t["th_value"]: "12,000,000 USD", t["th_blur"]: "🔒 Blurred (مغشّى)"},
+    {t["th_id"]: "YOUTH_PRO_#551", t["th_section"]: "القسم الأول (18 سنة)", t["th_status"]: "معروض للبيع الفوري (For Sale)", t["th_star"]: "Erling Haaland", t["th_value"]: "5,000,000 USD", t["th_blur"]: "🔒 Blurred (مغشّى)"}
+]
+
+st.write("---")
+st.dataframe(market_data, use_container_width=True)
+
+# 3️⃣ إضافة أزرار قنوات التعاقد والشراء والتفاوض المباشر لكشافة ووكلاء الأندية
+st.write("---")
+if st.button(t["btn_negotiate"]):
+    st.success(t["negotiate_success"])
+
+# 4️⃣ قسم التنبيه الإداري والأمني لضمان الحماية السيبرانية الكاملة وعمولات الصفقات
+st.markdown(f"""
+<div style="background-color:#2a2a2a; padding:15px; border-radius:8px; margin-top:20px; border-right:4px solid #ffcc00; border-left:4px solid #ffcc00;">
+    <h5 style="color:#ffcc00; margin-top:0; font-weight:bold;">{t['alert_title']}</h5>
+    <p style="color:#ffffff; font-size:13px; margin:0; line-height:1.6;">
+        {t['alert_desc']}
+    </p>
+</div>
+""", unsafe_allow_html=True)
