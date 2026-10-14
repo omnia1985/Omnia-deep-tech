@@ -130,4 +130,4 @@ LANG_DATA = {
         "p6_title": "🏰 Grandes Clubes de Campeonatos y Copas",
         "p6_desc": "💰 Precio: $1500/Mes para entorno aislado cibernético (Sandbox), simulador de crisis de vestuario y blindaje militar."
     },
-    "🇵🇹 Português": {
+    
