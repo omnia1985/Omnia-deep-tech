@@ -122,3 +122,33 @@ P4_TXT = {
         'success_pub': "📥 ¡Publicado con éxito! Escudo GDPR y difuminación digital activados automáticamente."
     }
 }
+    'Português': {
+        'title': "🏪 Clubes de Divisão 2, 3, Amadores e Academias Privadas",
+        'sub': "📌 Pacote Clubes Pequenos - Gestão segura de talentos e soberania Peer-to-Peer.",
+        'price': "💰 Preço de Assinatura: $500 / Mês",
+        'logo_lbl': "🛡️ Carregue o escudo oficial do clube para autorizar a sessão sandbox segura:",
+        'time_phase': "⏳ Selecione a fase temporal da análise do jogo:",
+        'pre': "🟢 Pré-Jogo (Análise do Adversário & Gêmeo Digital)",
+        'live': "⚡ Em Jogo (Transmissão ao Vivo & Planos Contra-Táticos)",
+        'post': "🔴 Pós-Jogo (Relatório Anatômico & Previsione de Lesões)",
+        'vid_live_lbl': "🎥 Caminho 1: Ativar câmera ao vivo do celular (Universal AI Camera & AR Overlay)",
+        'vid_old_lbl': "📂 Caminho 2: Carregar vídeo gravado do jogo para análise profunda e restauração",
+        'ai_tactical': "🧠 Assistente Tático IA & Motor de Remontada (50k Simulações): Ponto fraco detectado na ala esquerda adversária. Sugerimos mudar para 3-5-2. Chance de vitória 78%!",
+        'ai_medical': "🩺 Relatório Médico e Psicológico Proativo (Síndrome do Dia Negativo): Fadiga muscular aguda e alto estresse detectados (Foco: 62%). Substituição recomendada.",
+        'market_title': "📊 Tabela Unificada do Mercado de Transferências (Venda & Empréstimo)",
+        'market_sub': "📌 Exibe jogadores acima de 16 anos com valores e estrelas correspondentes. Protegido contra espionagem entre clubes.",
+        'success_pub': "📥 Dados sincronizados com sucesso sob a ativação dos escudos GDPR."
+    }
+}
+
+t = P4_TXT[lang_key]
+
+# شريط العرض الجانبي: إظهار مبالغ الاشتراك وإدارة الهوية وشعار النادي
+st.sidebar.error(t['price'])
+st.sidebar.write("---")
+st.sidebar.markdown(f"##### {t['logo_lbl']}")
+club_logo = st.sidebar.file_uploader("", type=["png", "jpg", "jpeg"], key="club_logo_uploader", label_visibility="collapsed")
+
+if club_logo:
+    st.sidebar.success("🔒 Club Identity Verified & Sandbox Shield Engaged.")
+    st.sidebar.image(club_logo, width=100)
