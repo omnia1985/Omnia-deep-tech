@@ -108,3 +108,47 @@ P4_TXT = {
         "market_title": "🔍 Tabla de Mercado de Fichajes Unificada (Compartida con Cazatalentos y Grandes Clubes)",
         "logo_lbl": "🛡️ Identidad Digital: Suba el escudo oficial del club para personalizar su área de trabajo aislada:"
     }
+    "🇵🇹 Português": {
+        "title": "🏪 Clubes de Divisão 2, 3, Amadores e Academias Privadas",
+        "sub": "📌 Pacote Pequenos Clubes & Academies - Feito para gerenciar, alimentar e exibir talentos do clube de forma peer-to-peer soberana.",
+        "price_label": "💰 Preço da Assinatura Mensal:",
+        "features_title": "📋 Recursos Ativos:",
+        "f1": "✅ Motor de Remontada e substituições ao vivo (50.000 simulações)",
+        "f2": "✅ Painel do Treinador Avançado e Gêmeo Digital (Antes, Durante e Depois do Jogo)",
+        "f3": "✅ Sistema Duplo de Vídeo & Escudo de Cibersegurança GDPR Isolado",
+        "live_cam_lbl": "🎥 Canal 1: Ativar Câmera ao Vivo do Jogo (AI Live & AR Overlay) para dados em tempo real:",
+        "upload_lbl": "📥 Canal 2: Carregar Vídeo Gravado do Jogo (Para análise pós-jogo profunda e simulação de Remontada):",
+        "process_live": "⚡ Conectando câmera ao vivo, rastreamento físico e métricas AR de posse na tela...",
+        "process_file": "🔄 Processando arquivo gravado, desmembrando erros de posicionamento e estatísticas...",
+        "coach_dash": "📊 Painel de Controle do Treinador AI Avançado",
+        "pre_match": "🟢 Fase Pré-Jogo & Simulação de Gêmeo Digital",
+        "in_match": "⚡ Táticas Ao Vivo / No Jogo & Gerenciamento de Crise de Remontada",
+        "post_match": "🔴 Análises Pós-Jogo & Atualização de Lesões Musculares",
+        "market_title": "🔍 Tabela do Mercado Unificado de Transferências (Compartilhada com Olheiros e Grandes Clubes)",
+        "logo_lbl": "🛡️ Identidade Digital: Carregue o escudo oficial do clube para customizar sua área soberana isolada:"
+    }
+}
+
+lang_key = selected_lang if selected_lang in P4_TXT else "🇸🇦 العربية"
+t = P4_TXT[lang_key]
+
+# 2️⃣ تفعيل ميزة الهوية الرقمية وشعارات الأندية المخصصة في الشريط الجانبي
+st.sidebar.markdown(f"### {t['logo_lbl']}")
+club_logo = st.sidebar.file_uploader("", type=["png", "jpg", "jpeg"], key="club_logo_uploader")
+
+if club_logo:
+    st.sidebar.image(club_logo, caption="Official Club Logo Registered", use_container_width=True)
+
+st.sidebar.metric(label=t['price_label'], value="500 USD")
+st.sidebar.markdown(f"### {t['features_title']}")
+st.sidebar.write(t['f1'])
+st.sidebar.write(t['f2'])
+st.sidebar.write(t['f3'])
+
+st.title(t['title'])
+st.write(t['sub'])
+st.write("---")
+
+# 3️⃣ المنظومة المزدوجة للفيديو (الحي والمسبق) الموحدة في الصفحة الرابعة
+st.markdown(f"### {t['live_cam_lbl']}")
+live_video = st.camera_input("Universal AI Tactical Match Camera")
