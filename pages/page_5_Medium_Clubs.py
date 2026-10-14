@@ -105,3 +105,147 @@ P5_TXT = {
         "info_buy": "⚖️ Conformità delle transazioni e protezione GDPR: Canale crittografato aperto. Calcolo automatico delle commissioni.",
         "logo_lbl": "🛡️ Identità Digitale: Carica il logo ufficiale del club per inserirlo istantaneamente nell'interfaccia:"
     }
+    "🇪🇸 Español": {
+        "title": "🏢 Clubes Medianos de Primera División",
+        "sub": "📌 Paquete de Clubes Medianos - Diseñado para gestionar, alimentar y exponer talentos junto con proyecciones tácticas de compradores.",
+        "price_label": "💰 Suscripción Mensual Oficial:",
+        "features_title": "📋 Funciones Activas en el Paquete:",
+        "f1": "✅ Todas las funciones de democratización (Remontada, Duelos, Médica y GDPR)",
+        "f2": "✅ Integración de cámaras de transmisión profesionales y flujos de drones",
+        "f3": "✅ Acceso completo para explorar talentos globales y realizar proyecciones tácticas",
+        "live_cam_lbl": "🎥 Vía 1: Conectar Cámaras de Transmisión Profesionales o Transmisión de Drone (Live AR Overlay):",
+        "upload_lbl": "📥 Vía 2: Subir Video Pregrabado del Partido (Para proyecciones tácticas y simulaciones de contratos):",
+        "process_live": "⚡ Procesando transmisión pro en vivo y proyectando métricas tácticas en tiempo real sobre el video...",
+        "process_file": "🔄 Subiendo el archivo guardado e inicializando los datos de proyección de Gemelo Digital...",
+        "coach_dash": "📊 Panel de Control de Analíticas de Entrenador Avanzado",
+        "pre_match": "🟢 Fase Pre-Partido (Simulación de Proyección Táctica sobre 10,000 partidos)",
+        "in_match": "⚡ Fase En Partido (Análisis de Duelos, Posesión en Vivo y Soluciones Tácticas)",
+        "post_match": "🔴 Fase Post-Partido (Informe Anatómico, Predición de Lesiones y Métricas de Adaptación)",
+        "market_title": "🔍 Mercado Global Unificado & Tabla Compartida de Fichajes",
+        "btn_drop": "🔬 Correr Proyección Táctica en Nuestro Sistema (10,000 partidos)",
+        "btn_buy": "💼 Iniciar Negociación Oficial y Comprar Contrato",
+        "success_drop": "📊 Resultado de Proyección Táctica: Este jugador tiene un 89% de tasa de adaptación táctica y un 72% de éxito en duelos.",
+        "info_buy": "⚖️ GDPR y Cumplimiento de Transacciones: Canal encriptado abierto. Mecanismos de solidaridad calculados automáticamente.",
+        "logo_lbl": "🛡️ Identidad Digital: Suba el escudo oficial del club para inyectarlo instantáneamente en la interfaz de alta tecnología:"
+    },
+    "🇵🇹 Português": {
+        "title": "🏢 Clubes Médios da Primeira Divisão",
+        "sub": "📌 Pacote Clubes Médios - Destinado a gerar, alimentar e exibir talentos junto com projeções táticas de compradores.",
+        "price_label": "💰 Assinatura Mensal Oficial:",
+        "features_title": "📋 Recursos Ativos no Pacote:",
+        "f1": "✅ Todos os recursos de democratização (Remontada, Duelos, Médico e GDPR)",
+        "f2": "✅ Integração de câmeras de transmissão profissionais e fluxos de drones",
+        "f3": "✅ Acesso total para navegar por talentos globais e realizar projeções táticas",
+        "live_cam_lbl": "🎥 Canal 1: Conectar Câmeras de Transmissão Profissionais ou Feed de Drone (Live AR Overlay):",
+        "upload_lbl": "📥 Canal 2: Carregar Vídeo Gravado do Jogo (Para projeções táticas e simulações de contratos):",
+        "process_live": "⚡ Processando transmissão profissional ao vivo e exibindo métricas táticas em tempo real no vídeo...",
+        "process_file": "🔄 Carregando arquivo gravado e inicializando os arquivos de projeção do Gêmeo Digital...",
+        "coach_dash": "📊 Painel de Controle de Análises do Treinador Avançado",
+        "pre_match": "🟢 Fase Pré-Jogo (Simulação de Projeção Tática sobre 10.000 jogos)",
+        "in_match": "⚡ Fase No Jogo (Análise de Duelos, Posse ao Vivo e Soluções Táticas)",
+        "post_match": "🔴 Fase Pós-Jogo (Relatório Anatômico, Predição de Lesões e Métricas de Adaptação)",
+        "market_title": "🔍 Mercado Global Unificado & Tabela Compartilhada de Transferências",
+        "btn_drop": "🔬 Executar Projeção Tática no Nosso Sistema (10.000 jogos)",
+        "btn_buy": "💼 Iniciar Negociação Oficial & Comprar Contrato",
+        "success_drop": "📊 Resultado da Projeção Tática: Este atleta possui 89% de taxa de adaptação tática e física e 72% de sucesso em duelos.",
+        "info_buy": "⚖️ Conformidade e Proteção GDPR: Canal encriptado aberto. Direitos de formação e comissões calculados automaticamente.",
+        "logo_lbl": "🛡️ Identidade Digital: Carregue o escudo oficial do clube para inseri-lo instantaneamente na interface:"
+    }
+}
+
+lang_key = selected_lang if selected_lang in P5_TXT else "🇸🇦 العربية"
+t = P5_TXT[lang_key]
+
+# 2️⃣ تفعيل ميزة الهوية الرقمية وشعارات الأندية المخصصة في الشريط الجانبي
+st.sidebar.markdown(f"### {t['logo_lbl']}")
+club_logo = st.sidebar.file_uploader("", type=["png", "jpg", "jpeg"], key="club_logo_uploader")
+
+if club_logo:
+    st.sidebar.image(club_logo, caption="Official Club Logo Registered", use_container_width=True)
+
+st.sidebar.metric(label=t['price_label'], value="500 USD")
+st.sidebar.markdown(f"### {t['features_title']}")
+st.sidebar.write(t['f1'])
+st.sidebar.write(t['f2'])
+st.sidebar.write(t['f3'])
+
+st.title(t['title'])
+st.write(t['sub'])
+st.write("---")
+
+# 3️⃣ المنظومة المزدوجة للفيديو (الحي والمسبق) الموحدة في الصفحة الخامسة
+st.markdown(f"### {t['live_cam_lbl']}")
+live_video = st.camera_input("Universal AI Broadcast & Drone Live Cam")
+
+st.markdown(f"### {t['upload_lbl']}")
+uploaded_file = st.file_uploader("", type=["mp4", "mov"], key="club_medium_match_uploader")
+
+video_source = None
+processing_msg = ""
+
+if live_video:
+    video_source = live_video
+    processing_msg = t["process_live"]
+elif uploaded_file:
+    video_source = uploaded_file
+    processing_msg = t["process_file"]
+
+# 4️⃣ ظهور لوحة تحكم المدرب والتحليلات المتكاملة وعنصر الإسقاط التكتيكي
+if video_source:
+    with st.spinner(processing_msg):
+        time.sleep(1.5)
+        
+    st.header(t["coach_dash"])
+    
+    # طور قبل المباراة: الإسقاط التكتيكي التلقائي
+    with st.expander(t["pre_match"], expanded=True):
+        st.write(t["sub"])
+        st.header(t['market_title'])
+        st.write(t['market_sub'])
+        
+        c_btn1, c_btn2 = st.columns(2)
+        with c_btn1:
+            if st.button(t['btn_drop']): 
+                st.success(t['success_drop'])
+        with c_btn2:
+            if st.button(t['btn_buy']): 
+                st.info(t['info_buy'])
+                
+    # طور أثناء المباراة: البيانات المباشرة والتحليل فوق الكاميرا البثية والدرون
+    with st.expander(t["in_match"], expanded=True):
+        col_in1, col_in2 = st.columns(2)
+        with col_in1:
+            st.metric(label="📊 نسبة الاستحواذ اللحظية عبر الدرون", value="61%")
+            st.metric(label="🎯 معدل تسجيل الأهداف المتوقع الفوري (xG Live)", value="2.10")
+        with col_in2:
+            st.progress(0.72, text="⚔️ نسبة التفوق الإجمالية في الالتحامات والثنائيات: 72%")
+            st.progress(0.09, text="🚨 نسبة الأخطاء العامة وتمركز الخطوط الخلفية: 9%")
+
+    # طور بعد المباراة: التنبؤ بالإصابات والتقرير التشريحي المتقدم وحالة الجاهزية
+    with st.expander(t["post_match"], expanded=False):
+        col_post1, col_post2 = st.columns(2)
+        with col_post1:
+            st.progress(0.05, text="🩺 مؤشر التنبؤ المسبق بالإصابة العضلية العميقة: 5%")
+            st.progress(0.96, text="🟢 حالة وجاهزية التشكيلة البدنية التكتيكية ككل: 96%")
+        with col_post2:
+            st.progress(0.89, text="🤝 نسبة انسجام وتأقلم اللاعبين الجدد مع الزملاء أثناء اللعب: 89%")
+            st.progress(0.91, text="🧠 معدل التركيز السلوكي والثبات تحت الضغط العالي (Emotion AI): 91%")
+
+# 5️⃣ إدراج الجدول الذكي الموحد لبورصة الانتقالات والشراء (المشترك مع حظر دون 16 سنة)
+st.write("---")
+st.header(t["market_title"])
+
+th_id = "رمز اللاعب (ID)"
+th_status = "حالة العقد والطلب"
+th_star = "أقرب تشبيه عالمي"
+th_value = "القيمة السوقية"
+th_blur = "حماية الـ GDPR"
+
+market_data = [
+    {th_id: "YOUTH_TALENT_#992", th_status: "متاح للإعارة المؤقتة (For Loan)", th_star: "Lamine Yamal", th_value: "1,500,000 USD", th_blur: "🔒 Blurred (مغشّى)"},
+    {th_id: "SENIOR_PRO_#402", th_status: "معروض للبيع الفوري (For Sale)", th_star: "Kylian Mbappé", th_value: "45,000,000 USD", th_blur: "🔒 Blurred (مغشّى)"},
+    {th_id: "YOUTH_PRO_#551", th_status: "معروض للبيع الفوري (For Sale)", th_star: "Erling Haaland", th_value: "5,000,000 USD", th_blur: "🔒 Blurred (مغشّى)"}
+]
+
+st.dataframe(market_data, use_container_width=True)
+st.caption("⚖️ نظام بورصة الصفقات متزامن ومحمي بالكامل. حقوق التكوين والعمولة مستوفاة ومحاطة بالخصوصية السيبرانية التامة لمنع التداخل.")
