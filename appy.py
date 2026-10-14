@@ -1,136 +1,133 @@
 import streamlit as st
-import time
 
-# 1. إعدادات الصفحة والواجهة البصرية الاحترافية عالية التقنية (Experiential UI)
-st.set_page_config(page_title="Omnia DeepArena IA", layout="wide")
+# إعداد الصفحة وتفعيل التصميم العريض
+st.set_page_config(page_title="Omnia DeepArena IA", layout="wide", initial_sidebar_state="expanded")
 
-# القاموس الموحد لست لغات المزامنة للبيانات والميزات الجديدة بالكامل
+# 1️⃣ حقن التصميم والتقنيات العالية: خلفية الملعب المتحركة والجماليات السينمائية (Experituelle)
+st.markdown("""
+<style>
+    /* خلفية الملعب المتحركة بأسلوب تكنولوجي عالي */
+    .stApp {
+        background: linear-gradient(rgba(0, 4, 10, 0.85), rgba(0, 15, 5, 0.85)), 
+                    url('https://unsplash.com');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #ffffff;
+    }
+    /* تصميم بطاقات الباقات والأسعار الدائرية الاحترافية */
+    .pricing-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(0, 255, 136, 0.2);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 10px 0;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    .pricing-card:hover {
+        border-color: #00ff88;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 255, 136, 0.2);
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# 2️⃣ القاموس المركزي لست لغات والأعلام لجميع شاشات وأقسام المنصة مع دمج الأسعار المحدثة وحذف الاستثمار
 LANG_DATA = {
     "🇸🇦 العربية": {
-        "welcome": "⚽ مرحباً بك في منصة Omnia DeepArena الرقمية الموحدة لكشافي الملاعب وسوق الانتقالات العالمية",
-        "info": "← يرجى تصفح الأقسام والانتقال بين الصفحات المتاحة عبر القائمة الجانبية (Sidebar) على هاتفك.",
-        "headline": "🏟️ باقات الاشتراك المتاحة علناً من الخارج (Pricing Plans):",
-        "p1_nav": "1️⃣ الصفحة الأولى: باقة الناشئين والأطفال (20 دولار شهرياً / مجاناً للأكاديميات الصغيرة للأطفال دون 16 سنة)",
-        "p2_nav": "2️⃣ الصفحة الثانية: باقة اللاعبين الكبار وسينيور (30 دولار شهرياً للوصول التشريحي الشامل)",
-        "p3_nav": "3️⃣ الصفحة الثالثة: باقة الكشافين ووكلاء الأندية وسوق الانتقالات (50 دولار شهرياً مع عمولات صفقات البيع والإعارة)",
-        "audio_title": "🎵 مركز التحكم الصوتي والبصري (Experituelle)",
-        "audio_toggle": "إظهار لوحة التحكم بالصوت",
-        "audio_select": "اختر الموسيقى الخلفية:",
-        "main_toggle": "تشغيل نظام التحليل الحي والمطابقة العالمية",
-        "live_tab": "📸 التصوير الحي بالهاتف (Live Preview)",
-        "archive_tab": "📂 تحليل ومطابقة الفيديوهات المسجلة",
-        "live_header": "🎥 رفع وتحليل البث الحي بكاميرا الهاتف",
-        "live_desc": "قم بتفعيل كاميرا الهاتف لبدء رصد تحركات اللاعب واستخراج البيانات فوراً.",
-        "camera_placeholder": "التقط لقطة حية للاعب أو قم بتشغيل الكاميرا",
-        "processing": "⚡ جاري معالجة البث الحي واستخراج البيانات فورياً...",
-        "realtime_stats": "📊 البيانات المستخرجة في الوقت الحي (Real-time Overlay)",
-        "speed": "السرعة الحالية",
-        "passing": "دقة التمرير",
-        "shooting": "قوة التسديد",
-        "dribbling": "معدل المراوغة الناجحة",
-        "match_title": "✨ عنصر التشبيه باللاعبين العالميين (Experituelle Match)",
-        "match_card_title": "اللاعب العالمي المطابق لأسلوبك",
-        "archive_header": "📂 تحليل الأرشيف والفيديوهات المسجلة القديمة",
-        "archive_desc": "ارفع مقاطع الفيديو القديمة أو المسجلة مسبقاً للاعب من ملفات جهازك لإجراء التحليل ومطابقة الإحصائيات.",
-        "file_uploader_lbl": "اختر ملف الفيديو (MP4, MOV)",
-        "btn_analyze": "🚀 ابدأ تحليل الفيديو المستورد ومطابقته",
-        "success_msg": "✅ تم الانتهاء من فحص ملف الفيديو بنجاح!",
-        "report_title": "📈 التقرير الإحصائي للفيديو",
-        "control_press": "🎯 التحكم بالكرة تحت الضغط:",
-        "distance": "🏃 المسافة المقطوعة المقدرة:",
-        "weak_foot": "👟 كفاءة القدم الضعيفة:",
-        "off_msg": "⚠️ المنظومة والتحليل مغلق حالياً. يمكنك تفعيله من الزر العلوي لفتح البيانات وخلفيات الملعب."
+        "welcome": "⚽ مرحباً بك في منصة Omnia DeepArena الرقمية الموحدة لكشافي الملاعب وسوق الانتقالات العالمية والند للند",
+        "info": "← يرجى تصفح الأقسام والانتقال بين الصفحات الست الفرعية المتاحة عبر القائمة الجانبية (Sidebar).",
+        "headline": "🏟️ باقات الاشتراك المتاحة والأسعار الرسمية الموحدة بالمنظومة:",
+        "music_lbl": "🎵 مشغل الصوتيات والأجواء الملحمية (Experituelle):",
+        "ucl_track": "🏆 تشغيل موسيقى رابطة الأبطال الأوروبية الرسمية (UEFA Champions League)",
+        "p1_title": "👶 باقة الناشئين والأطفال (القسم الأول)",
+        "p1_desc": "💰 السعر: 20 دولار/شهرياً | ✨ مجاناً بالكامل للأطفال دون 16 سنة بموافقة الولي الشرعي الإلزامية والامتثال لـ GDPR.",
+        "p2_title": "🏃 باقة اللاعبين الكبار وسينيور (القسم الثاني)",
+        "p2_desc": "💰 السعر: 30 دولار/شهرياً للوصول التشريحي الشامل، الكاميرا الحية، والتشبيه بالنجوم الـ 15 وحراس المرمى.",
+        "p3_title": "🔍 باقة الكشافين ووكلاء الأندية وسوق الانتقالات",
+        "p3_desc": "💰 السعر: 50 دولار/شهرياً للولوج الفوري للبورصة، التصفح الشامل، وقنوات التعاقد والشراء مع اقتطاع عمولة المنصة (5%-10%).",
+        "p4_title": "🏪 أندية الدرجة 2 و3، أندية الهواة، والأكاديميات",
+        "p4_desc": "💰 السعر: 500 دولار/شهرياً لتفعيل لوحة تحكم المدرب، محرك الريمونتادا (50,000 محاكاة)، والمنظومة المزدوجة للفيديو.",
+        "p5_title": "🏢 الأندية المتوسطة من الدرجة الأولى",
+        "p5_desc": "💰 السعر: 500 دولار/شهرياً للحصول على لوحة تحكم المدرب الكاملة، إسقاط صفقات التوأم الرقمي، وتكامل كاميرات البث والدرون.",
+        "p6_title": "🏰 أندية البطولات والكؤوس الكبرى",
+        "p6_desc": "💰 السعر: 1500 دولار/شهرياً للدخول السيبراني المعزول (Sandbox)، محاكي الأزمات وجدار حماية السرية العسكري الفائق."
     },
     "🇬🇧 English": {
-        "welcome": "⚽ Welcome to Omnia DeepArena Unified Scouting & Global Transfer Marketplace Platform",
-        "info": "← Please navigate through the available pages via the Sidebar on your phone.",
-        "headline": "🏟️ Public Subscription Plans & Pricing (Visible from Outside):",
-        "p1_nav": "1️⃣ Page 1: Youth & Minors Package ($20/Month / Fully FREE for Small Children's Academies Under 16)",
-        "p2_nav": "2️⃣ Page 2: Senior Players Package ($30/Month for Full Anatomical & Tactical Stack)",
-        "p3_nav": "3️⃣ Page 3: Certified Scouts, Club Agents & Transfer Market ($50/Month with Sale/Loan Commissions)",
-        "audio_title": "🎵 Audio & Visual Control Center (Experituelle)",
-        "audio_toggle": "Show Audio Control Panel",
-        "audio_select": "Choose background music:",
-        "main_toggle": "Activate Live Analysis System & Global Match",
-        "live_tab": "📸 Phone Live Camera (Live Preview)",
-        "archive_tab": "📂 Analyze & Match Recorded Videos",
-        "live_header": "🎥 Phone Live Stream Upload & Analysis",
-        "live_desc": "Activate phone camera to monitor player movements and extract data instantly.",
-        "camera_placeholder": "Take a live snapshot of the player or open the camera",
-        "processing": "⚡ Processing live stream and extracting data instantly...",
-        "realtime_stats": "📊 Extracted Real-time Data (Real-time Overlay)",
-        "speed": "Current Speed",
-        "passing": "Passing Accuracy",
-        "shooting": "Shooting Power",
-        "dribbling": "Successful Dribbles",
-        "match_title": "✨ Global Player Comparison (Experituelle Match)",
-        "match_card_title": "Global Player Matching Your Style",
-        "archive_header": "📂 Archive Analysis & Old Recorded Videos",
-        "archive_desc": "Upload old or pre-recorded player videos from your device files for analysis and statistical matching.",
-        "file_uploader_lbl": "Choose video file (MP4, MOV)",
-        "btn_analyze": "🚀 Start analysis and matching of imported video",
-        "success_msg": "✅ Video file scanning completed successfully!",
-        "report_title": "📈 Statistical Video Report",
-        "control_press": "🎯 Ball Control under Pressure:",
-        "distance": "🏃 Estimated Distance Covered:",
-        "weak_foot": "👟 Weak Foot Efficiency:",
-        "off_msg": "⚠️ The system and analysis are currently closed. You can activate it from the top button."
+        "welcome": "⚽ Welcome to Omnia DeepArena Unified Scouting, Global Transfer Marketplace & Peer-to-Peer Platform",
+        "info": "← Please navigate through the 6 available sub-pages via the Sidebar.",
+        "headline": "🏟️ Active Subscription Plans & Official Pricing within the System:",
+        "music_lbl": "🎵 Audio Player & Atmospheric Experience (Experituelle):",
+        "ucl_track": "🏆 Play Official UEFA Champions League Anthem",
+        "p1_title": "👶 Youth & Minors Package (Section 1)",
+        "p1_desc": "💰 Price: $20/Month | ✨ 100% FREE for children under 16 with mandatory legal parental consent & GDPR shield.",
+        "p2_title": "🏃 Senior Players Package (Section 2)",
+        "p2_desc": "💰 Price: $30/Month for complete anatomical stack, live mobile camera AR, and matching with the 15 global stars.",
+        "p3_title": "🔍 Certified Scouts, Club Agents & Transfer Market",
+        "p3_desc": "💰 Price: $50/Month for live index access, advanced browsing, and instant contract negotiation/purchase (5%-10% commission).",
+        "p4_title": "🏪 Division 2, 3, Amateur Clubs & Private Academies",
+        "p4_desc": "💰 Price: $500/Month for full Coach Dashboard, Remontada engine (50,000 simulations), and dual live/preset video feed.",
+        "p5_title": "🏢 Medium Clubs from Division 1",
+        "p5_desc": "💰 Price: $500/Month for comprehensive dashboard metrics, Digital Twin contract projection, drone and stadium stream setup.",
+        "p6_title": "🏰 Major Championship & Cup Clubs",
+        "p6_desc": "💰 Price: $1500/Month for isolated cyber sandbox environment, AI crisis simulator, and military-grade encryption shield."
     },
     "🇫🇷 Français": {
-        "welcome": "⚽ Bienvenue sur la plateforme unifiée de recrutement mondial Omnia DeepArena",
-        "info": "← Veuillez naviguer à travers les pages disponibles via le menu latéral de votre téléphone.",
-        "headline": "🏟️ Tarifs et Offres d'Abonnement Publics (Visibles de l'extérieur) :",
-        "p1_nav": "1️⃣ Page 1: Offre Jeunes & Mineurs (20$ / Mois / Entièrement GRATUIT pour les petites académies d'enfants < 16 ans)",
-        "p2_nav": "2️⃣ Page 2: Offre Joueurs Seniors (30$ / Mois pour un accès anatomique et tactique complet)",
-        "p3_nav": "3️⃣ Page 3: Offre Recruteurs, Agents & Marché des Transferts (50$ / Mois avec commissions sur Ventes/Prêts)",
-        "audio_title": "🎵 Centre de Contrôle Audio & Visuel (Experituelle)",
-        "audio_toggle": "Afficher le panneau de contrôle audio",
-        "audio_select": "Choisissez la musique de fond:",
-        "main_toggle": "Activer le système d'analyse en direct et match mondial",
-        "live_tab": "📸 Caméra en direct du téléphone (Live Preview)",
-        "archive_tab": "📂 Analyser & Associer les Vidéos Enregistrées",
-        "live_header": "🎥 Analyse et Téléchargement du Flux En Direct par Téléphone",
-        "live_desc": "Activez la caméra du téléphone pour surveiller les mouvements du joueur et extraire les données instantanément.",
-        "camera_placeholder": "Prenez un instantané en direct du joueur ou ouvrez la caméra",
-        "processing": "⚡ Traitement du flux en direct et extraction instantanée des données...",
-        "realtime_stats": "📊 Données extraites en temps réel (Real-time Overlay)",
-        "speed": "Vitesse Actuelle",
-        "passing": "Précision des Passes",
-        "shooting": "Puissance de Frappe",
-        "dribbling": "Dribbles Réussis",
-        "match_title": "✨ Comparaison avec des Joueurs Mondiaux (Experituelle Match)",
-        "match_card_title": "Joueur mondial correspondant à votre style",
-        "archive_header": "📂 Analyse d'Archives et Anciennes Vidéos Enregistrées",
-        "archive_desc": "Téléchargez d'anciennes vidéos de joueurs ou des vidéos préenregistrées depuis votre appareil pour analyse et correspondance statistique.",
-        "file_uploader_lbl": "Choisissez le fichier vidéo (MP4, MOV)",
-        "btn_analyze": "🚀 Lancer l'analyse et l'association de la vidéo importée",
-        "success_msg": "✅ L'analyse du fichier vidéo s'est terminée avec succès!",
-        "report_title": "📈 Rapport Statistique Vidéo",
-        "control_press": "🎯 Contrôle du ballon sous pression:",
-        "distance": "🏃 Distance Estimée Parcourue:",
-        "weak_foot": "👟 Efficacité du Mauvais Pied:",
-        "off_msg": "⚠️ Le système et l'analyse sont actuellement fermés. Vous pouvez l'activer depuis le bouton supérieur."
+        "welcome": "⚽ Bienvenue sur la plateforme unifiée de recrutement mondial Omnia DeepArena et Peer-to-Peer",
+        "info": "← Veuillez naviguer à travers les 6 sous-pages disponibles via le menu latéral (Sidebar).",
+        "headline": "🏟️ Offres d'Abonnement et Tarifs Officiels (Visibles immédiatement) :",
+        "music_lbl": "🎵 Lecteur Audio & Expérience Atmosphérique (Experituelle) :",
+        "ucl_track": "🏆 Jouer l'Hymne Officiel de l'UEFA Champions League",
+        "p1_title": "👶 Pack Jeunes & Mineurs (Section 1)",
+        "p1_desc": "💰 Tarif: 20$/Mois | ✨ Entièrement GRATUIT pour les enfants de moins de 16 ans avec accord parental obligatoire & GDPR.",
+        "p2_title": "🏃 Pack Joueurs Seniors (Section 2)",
+        "p2_desc": "💰 Tarif: 30$/Mois pour l'accès anatomique complet, caméra AR en direct et comparaison avec les 15 stars.",
+        "p3_title": "🔍 Recruteurs, Agents & Marché des Transferts",
+        "p3_desc": "💰 Tarif: 50$/Mois pour l'accès complet, filtrage et boutons de négociation/achat (commission de 5% à 10%).",
+        "p4_title": "🏪 Clubs de Division 2, 3, Amateurs & Académies",
+        "p4_desc": "💰 Tarif: 500$/Mois pour le Tableau de Bord Entraîneur, moteur Remontada (50K simulations) et double flux vidéo.",
+        "p5_title": "🏢 Clubs Moyens de Première Division",
+        "p5_desc": "💰 Tarif: 500$/Mois pour le pack complet entraîneur, projection tactique Double Numérique et intégration Drone.",
+        "p6_title": "🏰 Grands Clubs de Championnats & Coupes",
+        "p6_desc": "💰 Tarif: 1500$/Mois pour l'environnement cyber isolé (Sandbox), simulateur de crise et bouclier militaire."
     },
     "🇮🇹 Italiano": {
-        "welcome": "⚽ Benvenuto sulla piattaforma unificata di scouting mondiale Omnia DeepArena",
-        "info": "← Si prega di navigare attraverso le pagine disponibili tramite il menu laterale sul telefono.",
-        "headline": "🏟️ Piani di Abbonamento Pubblici e Prezzi (Visibili dall'esterno):",
-        "p1_nav": "1️⃣ Pagina 1: Pacchetto Giovani e Minori ($20/Mese / Completamente GRATUITO per piccole accademie sotto i 16 anni)",
-        "p2_nav": "2️⃣ Pagina 2: Pacchetto Giocatori Senior ($30/Mese per l'accesso anatomico e tactico completo)",
-        "p3_nav": "3️⃣ Pagina 3: Pacchetto Scout, Agenti e Mercato dei Trasferimenti ($50/Mese con commissioni su Vendite/Prestiti)",
-        "audio_title": "🎵 Centro di Controllo Audio e Visivo (Experituelle)",
-        "audio_toggle": "Mostra il pannello di controllo audio",
-        "audio_select": "Scegli la musica di sottofondo:",
-        "main_toggle": "Attiva il sistema di analisi dal vivo e corrispondenza globale",
-        "live_tab": "📸 Telecamera dal vivo del telefono (Live Preview)",
-        "archive_tab": "📂 Analizza e Confronta i Video Registrati",
-        "live_header": "🎥 Caricamento e Analisi dello Streaming dal Vivo tramite Telefono",
-        "live_desc": "Attiva la fotocamera del telefono per monitorare i movimenti del giocatore ed estrarre i dati istantaneamente.",
-        "camera_placeholder": "Scatta una foto dal vivo del giocatore o apri la fotocamera",
-        "processing": "⚡ Elaborazione dello streaming dal vivo ed estrazione istantanea dei dati...",
-        "realtime_stats": "📊 Danti Estratti in Tempo Reale (Real-time Overlay)",
-        "speed": "Velocità Corrente",
-        "passing": "Precisione Passaggi",
-        "shooting": "Potenza di Tiro",
-        "dribbling": "Dribbling Riusciti",
-        "match_title": "✨ Confronto con Giocatori Globali (Experituelle Match)",
+        "welcome": "⚽ Benvenuto sulla piattaforma unificata di scouting e mercato trasferimenti Omnia DeepArena Peer-to-Peer",
+        "info": "← Si prega di navigare attraverso le 6 pagine secondarie disponibili tramite il menu laterale.",
+        "headline": "🏟️ Piani di Abbonamento e Prezzi Ufficiali Visibili nel Sistema:",
+        "music_lbl": "🎵 Riproduttore Audio & Esperienza Atmosferica (Experituelle):",
+        "ucl_track": "🏆 Riproduci l'Inno Ufficiale della UEFA Champions League",
+        "p1_title": "👶 Pacchetto Giovani e Minori (Sezione 1)",
+        "p1_desc": "💰 Prezzo: $20/Mese | ✨ Completamente GRATUITO sotto i 16 anni con consenso legale dei genitori obbligatorio e GDPR.",
+        "p2_title": "🏃 Pacchetto Giocatori Senior (Sezione 2)",
+        "p2_desc": "💰 Prezzo: $30/Mese per accesso anatomico totale, telecamera live AR e abbinamento con le 15 stelle mondiali.",
+        "p3_title": "🔍 Scout, Agenti di Club e Mercato Trasferimenti",
+        "p3_desc": "💰 Prezzo: $50/Mese per accesso alla borsa, navigazione e canali di acquisto/contratto (commissione del 5%-10%).",
+        "p4_title": "🏪 Club di Divisione 2, 3, Dilettanti e Accademie",
+        "p4_desc": "💰 Prezzo: $500/Mese per il Pannello Allenatore, motore Remontada (50k simulazioni) e doppio feed video live/archiviato.",
+        "p5_title": "🏢 Club Medi di Prima Divisione",
+        "p5_desc": "💰 Prezzo: $500/Mese per metriche avanzate, proiezione contrattuale Gemello Digitale e integrazione streaming e droni.",
+        "p6_title": "🏰 Grandi Club di Campionati e Coppe",
+        "p6_desc": "💰 Prezzo: $1500/Mese per ambiente sandbox cyber isolato, simulatore di crisi AI e scudo di crittografia militare."
+    },
+    "🇪🇸 Español": {
+        "welcome": "⚽ Bienvenido a la plataforma unificada de ojeadores, mercado global y peer-to-peer Omnia DeepArena",
+        "info": "← Por favor, navegue a través de las 6 páginas secundarias disponibles a través del menú lateral.",
+        "headline": "🏟️ Planes de Suscripción y Tarifas Oficiales Visibles en el Sistema:",
+        "music_lbl": "🎵 Reproductor de Audio y Experiencia Atmosférica (Experituelle):",
+        "ucl_track": "🏆 Reproducir el Himno Oficial de la UEFA Champions League",
+        "p1_title": "👶 Paquete Juvenil y Menores (Sección 1)",
+        "p1_desc": "💰 Precio: $20/Mes | ✨ 100% GRATIS para menores de 16 años con consentimiento paterno obligatorio y escudo GDPR.",
+        "p2_title": "🏃 Paquete Jugadores Seniors (Sección 2)",
+        "p2_desc": "💰 Precio: $30/Mes para acceso anatómico completo, cámara móvil en vivo AR y emparejamiento con 15 estrellas.",
+        "p3_title": "🔍 Cazatalentos, Agentes y Mercado de Fichajes",
+        "p3_desc": "💰 Precio: $50/Mes para acceso a bolsa unificada y botones de compra/negociación directa (comisión del 5%-10%).",
+        "p4_title": "🏪 Clubes de División 2, 3, Amateurs y Academias",
+        "p4_desc": "💰 Precio: $500/Mes para Panel de Entrenador, motor de Remontada (50,000 simulaciones) y opción de video doble.",
+        "p5_title": "🏢 Clubes Medianos de Primera División",
+        "p5_desc": "💰 Precio: $500/Mes para análisis avanzado, proyección de Gemelo Digital e integración de drones y cámaras fijas.",
+        "p6_title": "🏰 Grandes Clubes de Campeonatos y Copas",
+        "p6_desc": "💰 Precio: $1500/Mes para entorno aislado cibernético (Sandbox), simulador de crisis de vestuario y blindaje militar."
+    },
+    "🇵🇹 Português": {
