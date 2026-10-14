@@ -129,26 +129,4 @@ P4_TXT = {
     }
 }
 
-lang_key = selected_lang if selected_lang in P4_TXT else "🇸🇦 العربية"
-t = P4_TXT[lang_key]
 
-# 2️⃣ تفعيل ميزة الهوية الرقمية وشعارات الأندية المخصصة في الشريط الجانبي
-st.sidebar.markdown(f"### {t['logo_lbl']}")
-club_logo = st.sidebar.file_uploader("", type=["png", "jpg", "jpeg"], key="club_logo_uploader")
-
-if club_logo:
-    st.sidebar.image(club_logo, caption="Official Club Logo Registered", use_container_width=True)
-
-st.sidebar.metric(label=t['price_label'], value="500 USD")
-st.sidebar.markdown(f"### {t['features_title']}")
-st.sidebar.write(t['f1'])
-st.sidebar.write(t['f2'])
-st.sidebar.write(t['f3'])
-
-st.title(t['title'])
-st.write(t['sub'])
-st.write("---")
-
-# 3️⃣ المنظومة المزدوجة للفيديو (الحي والمسبق) الموحدة في الصفحة الرابعة
-st.markdown(f"### {t['live_cam_lbl']}")
-live_video = st.camera_input("Universal AI Tactical Match Camera")
