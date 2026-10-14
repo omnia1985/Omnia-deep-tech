@@ -131,3 +131,76 @@ LANG_DATA = {
         "p6_desc": "💰 Precio: $1500/Mes para entorno aislado cibernético (Sandbox), simulador de crisis de vestuario y blindaje militar."
     },
     
+    "🇵🇹 Português": {
+        "welcome": "⚽ Bem-vindo à plataforma unificada de olheiros, mercado global e peer-to-peer Omnia DeepArena",
+        "info": "← Por favor, navegue pelas 6 páginas secundárias disponíveis através do menu lateral.",
+        "headline": "🏟️ Planos de Assinatura e Preços Oficiais Visíveis no Sistema:",
+        "music_lbl": "🎵 Reprodutor de Áudio & Experiência Atmosférica (Experituelle):",
+        "ucl_track": "🏆 Reproduzir o Hino Oficial da UEFA Champions League",
+        "p1_title": "👶 Pacote Juvenil e Menores (Seção 1)",
+        "p1_desc": "💰 Preço: $20/Mês | ✨ 100% GRATUITO para menores de 16 anos com consentimento legal dos pais e proteção GDPR.",
+        "p2_title": "🏃 Pacote Jogadores Seniores (Seção 2)",
+        "p2_desc": "💰 Preço: $30/Mês para acesso anatômico total, câmera live AR no celular e comparação com as 15 estrelas mundiais.",
+        "p3_title": "🔍 Olheiros, Agentes e Bolsa de Transferências",
+        "p3_desc": "💰 Preço: $50/Mês para acesso à bolsa de valores e botões de compra/negociação de contratos (comissão de 5%-10%).",
+        "p4_title": "🏪 Clubes de Divisão 2, 3, Amadores e Academias",
+        "p4_desc": "💰 Preço: $500/Mês para Painel do Treinador, motor de Remontada (50k simulações) e canais duplos de vídeo.",
+        "p5_title": "🏢 Clubes Médios da Primeira Divisão",
+        "p5_desc": "💰 Preço: $500/Mês para métricas de desempenho completas, projeção de contrato Gêmeo Digital e fluxo de drones.",
+        "p6_title": "🏰 Grandes Clubes de Campeonatos e Copas",
+        "p6_desc": "💰 Preço: $1500/Mese para ambiente sandbox cibernético isolado, simulador de crises de elenco e criptografia militar."
+    }
+}
+
+# 3️⃣ شريط اختيار اللغة والأعلام العلوي العام والموحد لجميع شاشات التطبيق
+st.markdown("### 🌐 Select Language / اختر اللغة")
+selected_lang = st.selectbox("", list(LANG_DATA.keys()), label_visibility="collapsed")
+
+# حفظ الاختيار في الجلسة لضمان التزامن الموحد والكامل مع الصفحات الفرعية الست الأخرى
+st.session_state["lang"] = selected_lang
+st.session_state["language"] = selected_lang.split(" ")[1] if " " in selected_lang else "العربية"
+
+tx = LANG_DATA[selected_lang]
+
+# 4️⃣ قسم تشغيل الموسيقى الحماسية لرابطة الأبطال الأوروبية والأجواء الملحمية (Experituelle)
+st.sidebar.markdown(f"### {tx['music_lbl']}")
+st.sidebar.caption(tx["ucl_track"])
+st.sidebar.audio("https://soundhelix.com")
+
+# 5️⃣ تصميم واجهة الترحيب ومصادر التوجيه والتحكم
+st.title(tx["welcome"])
+st.info(tx["info"])
+st.write("---")
+
+# 6️⃣ مكان ظهور الباقات والأسعار الرسمية الموحدة مباشرة تحت اختيار اللغة
+st.markdown(f"### {tx['headline']}")
+
+st.markdown(f"""
+<div class="pricing-card">
+    <h4 style="color:#00ff88; margin-top:0;">{tx['p1_title']}</h4>
+    <p style="margin:0; font-size:14px; color:#e0e0e0;">{tx['p1_desc']}</p>
+</div>
+<div class="pricing-card">
+    <h4 style="color:#00ccff; margin-top:0;">{tx['p2_title']}</h4>
+    <p style="margin:0; font-size:14px; color:#e0e0e0;">{tx['p2_desc']}</p>
+</div>
+<div class="pricing-card">
+    <h4 style="color:#ffcc00; margin-top:0;">{tx['p3_title']}</h4>
+    <p style="margin:0; font-size:14px; color:#e0e0e0;">{tx['p3_desc']}</p>
+</div>
+<div class="pricing-card">
+    <h4 style="color:#ff3366; margin-top:0;">{tx['p4_title']}</h4>
+    <p style="margin:0; font-size:14px; color:#e0e0e0;">{tx['p4_desc']}</p>
+</div>
+<div class="pricing-card">
+    <h4 style="color:#b366ff; margin-top:0;">{tx['p5_title']}</h4>
+    <p style="margin:0; font-size:14px; color:#e0e0e0;">{tx['p5_desc']}</p>
+</div>
+<div class="pricing-card">
+    <h4 style="color:#ff6600; margin-top:0;">{tx['p6_title']}</h4>
+    <p style="margin:0; font-size:14px; color:#e0e0e0;">{tx['p6_desc']}</p>
+</div>
+""", unsafe_allow_html=True)
+
+st.write("---")
+st.caption("Omnia DeepArena IA © 2026 | Secure Cyber-Tactical Platform Secured under Global Multi-Tenancy Sandbox Protocols.")
