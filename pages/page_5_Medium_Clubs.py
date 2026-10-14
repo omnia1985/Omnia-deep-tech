@@ -248,4 +248,10 @@ market_data = [
 ]
 
 st.dataframe(market_data, use_container_width=True)
-st.caption("⚖️ نظام بورصة الصفقات متزامن ومحمي بالكامل. حقوق التكوين والعمولة مستوفاة ومحاطة بالخصوصية السيبرانية التامة لمنع التداخل.")
+
+# 6️⃣ التذييل الأمني والسيبراني لإتمام وإغلاق الصفحة بالكامل (السطر 251 وما بعده)
+st.caption("⚖️ المنظومة السيبرانية التامة لمنع التداخل وحماية المعطيات الدولية (GDPR) نشطة بقوة سيادية مكافئة ند لند.")
+st.write("---")
+st.caption("Omnia DeepArena IA © 2026 | Safe Multi-Tenancy Encrypted Data Stream Stack.")
+
+
