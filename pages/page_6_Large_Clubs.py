@@ -92,3 +92,135 @@ P6_TXT = {
         "logo_lbl": "🛡️ Personnalisation Souveraine : Déposez le logo officiel pour teinter l'interface à vos couleurs :"
     }
 }
+    "🇮🇹 Italiano": {
+        "title": "🏰 Grandi Club di Campionati e Coppe",
+        "sub": "📌 Esclusivamente per grandi club che competono per titoli nazionali e coppe peer-to-peer con totale sovranità.",
+        "price_label": "💰 Abbonamento Mensile Ufficiale:",
+        "features_title": "📋 Sicurezza Premium & Sovranità:",
+        "f1": "✅ Elaborazione in tempo reale dello stadio con feed Ultra HD live (Zero latenza)",
+        "f2": "✅ Consulente IA per gestire crisi comportamentali negli spogliatoi e pressioni mediatiche",
+        "f3": "✅ Ambiente sandbox cyber isolato per proteggere proiezioni e conformità GDPR",
+        "live_cam_lbl": "🎥 Percorso 1: Collega lo Streaming Stadio Ultra HD in Tempo Reale (Zero latenza) :",
+        "upload_lbl": "📥 Percorso 2: Carica un Video di Partita Storica Registrato (Per modelli isolati di crisi):",
+        "process_live": "⚡ Elaborazione del flusso stadio d'élite in tempo reale e caricamento indicatori...",
+        "process_file": "🔄 Caricamento del file registrato e distribuzione dell'ambiente sandbox GDPR isolato...",
+        "coach_dash": "📊 Pannello Allenatore AI d'Élite e di Sovranità",
+        "pre_match": "🟢 Fase Prima della Partita (Isolamento Radar e Configurazione Gemello Digitale Cifrato)",
+        "in_match": "⚡ Fase Durante la Partita (Gestione Crisi Spogliatoio & Integrazione Motore Remontada)",
+        "post_match": "🔴 Fase Post-Partita (Diagnostica Anatomica, Proiezioni Infortuni & Adattamento Top Player)",
+        "crisis_title": "🔥 Simulatore Virtuale di Crisi AI & Pressione Mediatica",
+        "shield_title": "🛡️ Isolamento Radar Scouting & Proiezioni Tattiche Cifrate",
+        "shield_success": "🔒 Scudo di Grado Militare & Isolamento GDPR Attivo: Tutte le proiezioni tattiche e simulazioni di 10.000 partite sono isolate in una sandbox indipendente per prevenire lo spionaggio. I club rivali non possono tracciare i vostri radar.",
+        "err_msg": "🚨 Allerta Crisi Comportamentale: Rilevato alto indice negativo nel linguaggio del corpo per pressione mediatica.",
+        "info_msg": "📋 Piano di Contenimento AI: Raccomandato isolamento mediatico completo per assicurare il dominio nei duelli.",
+        "market_title": "🔍 Motore di Scouting Avanzato (Filtra, Sfoglia e Acquista Contratti di Vendita/Prestito)",
+        "btn_buy": "💼 Avvia Trattativa Ufficiale e Apri Canale di Acquisto Crittografato",
+        "buy_success": "⚖️ Sovranità Commerciale Attiva: Canale cifrato aperto. Calcolo automatico dei diritti di formazione.",
+        "logo_lbl": "🛡️ Personalizzazione Sovrana: Carica il logo ufficiale del club per tingere l'interfaccia con i tuoi colori:"
+    },
+    "🇪🇸 Español": {
+        "title": "🏰 Grandes Clubes de Campeonatos y Copas",
+        "sub": "📌 Exclusivo para grandes clubes que compiten por títulos locales y copas peer-to-peer bajo absoluta soberanía táctica.",
+        "price_label": "💰 Suscripción Mensual Oficial:",
+        "features_title": "📋 Máxima Seguridad y Soberanía:",
+        "f1": "✅ Procesamiento en tiempo real de estadios inteligentes con transmisión Ultra HD (Cero latencia)",
+        "f2": "✅ Consultor de IA para gestionar crisis conductuales de vestuario y presión de prensa/afición",
+        "f3": "✅ Entorno de sandbox cibernético totalmente aislado que protege proyecciones y cumple GDPR",
+        "live_cam_lbl": "🎥 Vía 1: Conectar Transmisión Inteligente en Vivo Ultra HD del Estadio (Live AR) :",
+        "upload_lbl": "📥 Vía 2: Subir Video Pregrabado de Partidos Históricos (Para modelos aislados de crisis y proyección):",
+        "process_live": "⚡ Procesando el flujo de estadio elite en tiempo real y cargando indicadores de rendimiento...",
+        "process_file": "🔄 Subiendo el archivo guardado y desplegando el entorno de sandbox aislado seguro de GDPR...",
+        "coach_dash": "📊 Panel de Control Soberano de Entrenador de Élite",
+        "pre_match": "🟢 Fase Pre-Partido (Aislamiento de Radar y Configuración de Gemelo Digital Encriptado)",
+        "in_match": "⚡ Fase En Partido (Simulador de Crisis de Vestuario e Integración de Motor Remontada)",
+        "post_match": "🔴 Fase Post-Partido (Informe Anatómico, Predicción de Lesiones y Adaptación de Estrellas)",
+        "crisis_title": "🔥 Simulador de Crisis de IA y Presión de Medios de Vestuario",
+        "shield_title": "🛡️ Aislamiento de Radar de Ojeo & Proyecciones Tácticas Encriptadas",
+        "shield_success": "🔒 Escudo de Grado Militar y Aislamiento GDPR Activo: Todas las proyecciones y simulaciones están aisladas en una sandbox independiente para evitar el espionaje táctico. Los clubes rivales no pueden rastrear sus radares secretos.",
+        "err_msg": "🚨 Alerta de Crisis Conductual Potencial: Alto índice negativo detectado en el lenguaje corporal por presión externa.",
+        "info_msg": "📋 Plan de Contención de IA: Se recomienda aislamiento mediático completo para asegurar el dominio en duelos.",
+        "market_title": "🔍 Motor de Exploración de Élite (Filtrar, Clasificar y Comprar Contratos de Venta/Cesión)",
+        "btn_buy": "💼 Iniciar Negociación Oficial y Abrir Canal de Compra Encriptado",
+        "buy_success": "⚖️ Soberanía Comercial Activa: Canal encriptado abierto. Derechos de formación calculados automáticamente.",
+        "logo_lbl": "🛡️ Personalización Soberana: Suba el escudo oficial del club para teñir la interfaz con sus colores oficiales:"
+    },
+    "🇵🇹 Português": {
+        "title": "🏰 Grandes Clubes de Campeonatos e Copas",
+        "sub": "📌 Exclusivo para grandes clubes que disputam títulos domésticos e taças peer-to-peer com soberania absoluta.",
+        "price_label": "💰 Assinatura Mensal Oficial:",
+        "features_title": "📋 Segurança Máxima & Soberania:",
+        "f1": "✅ Processamento em tempo real de estádios inteligentes com feed Ultra HD ao vivo (Zero latência)",
+        "f2": "✅ Consultor de IA para gerenciar crises comportamentais de vestiário e pressão de mídia/torcida",
+        "f3": "✅ Ambiente sandbox cibernético totalmente isolado protegendo projeções e em conformidade GDPR",
+        "live_cam_lbl": "🎥 Canal 1: Conectar Stream Inteligente do Estádio Ultra HD em Tempo Real (Live AR Feed):",
+        "upload_lbl": "📥 Canal 2: Carregar Vídeo Gravado de Jogos Históricos (Para modelos isolados de crise e projeção):",
+        "process_live": "⚡ Processando feed de estádio elite em tempo real e carregando métricas de performance instantâneas...",
+        "process_file": "🔄 Carregando arquivo gravado e implantando o ambiente sandbox isolado seguro da GDPR...",
+        "coach_dash": "📊 Painel de Controle do Treinador de Elite Soberano",
+        "pre_match": "🟢 Fase Pré-Jogo (Isolamento de Radar de Olheiros & Gêmeo Digital Encriptado)",
+        "in_match": "⚡ Fase No Jogo (Simulador de Crise de Vestiário & Integração de Motor de Remontada)",
+        "post_match": "🔴 Fase Pós-Jogo (Relatório Anatômico, Projeções de Lesões & Adaptação de Estrelas)",
+        "crisis_title": "🔥 Simulador de Crise de IA e Pressão da Mídia no Vestiário",
+        "shield_title": "🛡️ Isolamento de Radar de Olheiros & Projeções Táticas Encriptadas",
+        "shield_success": "🔒 Escudo de Grau Militar & Isolamento GDPR Ativo: Todas as projeções táticas e simulações de 10.000 jogos estão isoladas em uma sandbox independente para prevenir espionagem tática de clubes rivais.",
+        "err_msg": "🚨 Alerta de Crise Comportamental Potencial: Alto índice negativo detectado na linguagem corporal por pressão de mídia.",
+        "info_msg": "📋 Plano de Contenção da IA: Recomenda-se isolamento de mídia completo para garantir o domínio total nos duelos.",
+        "market_title": "🔍 Motor de Prospecção de Elite (Filtrar, Classificar & Comprar Contratos de Venda/Empréstimo)",
+        "btn_buy": "💼 Iniciar Negociação Oficial & Abrir Canal de Compra Encriptado",
+        "buy_success": "⚖️ Soberança Comercial Ativa: Canal encriptado aberto. Direitos de formação e comissões garantidos.",
+        "logo_lbl": "🛡️ Customização Soberana: Carregue o escudo oficial do clube para tingir a interface com suas cores oficiais:"
+    }
+}
+
+lang_key = selected_lang if selected_lang in P6_TXT else "🇸🇦 العربية"
+t = P6_TXT[lang_key]
+
+# 2️⃣ تفعيل ميزة الهوية الرقمية وشعارات الأندية المخصصة في الشريط الجانبي للسيادة المطلقة
+st.sidebar.markdown(f"### {t['logo_lbl']}")
+club_logo = st.sidebar.file_uploader("", type=["png", "jpg", "jpeg"], key="club_elite_logo_uploader")
+
+if club_logo:
+    st.sidebar.image(club_logo, caption="Elite Club Logo Registered", use_container_width=True)
+
+st.sidebar.metric(label=t['price_label'], value="1500 USD")
+st.sidebar.markdown(f"### {t['features_title']}")
+st.sidebar.write(t['f1'])
+st.sidebar.write(t['f2'])
+st.sidebar.write(t['f3'])
+
+st.title(t['title'])
+st.write(t['sub'])
+st.write("---")
+
+# 3️⃣ المنظومة المزدوجة للفيديو (الحي عالي الدقة والمسبق) الموحدة في الصفحة السادسة
+st.markdown(f"### {t['live_cam_lbl']}")
+live_video = st.camera_input("Universal Ultra HD Stadium Camera")
+
+st.markdown(f"### {t['upload_lbl']}")
+uploaded_file = st.file_uploader("", type=["mp4", "mov"], key="club_elite_match_uploader")
+
+video_source = None
+processing_msg = ""
+
+if live_video:
+    video_source = live_video
+    processing_msg = t["process_live"]
+elif uploaded_file:
+    video_source = uploaded_file
+    processing_msg = t["process_file"]
+
+# 4️⃣ ظهور لوحة تحكم المدرب والتحليلات السيادية عند توفر مصدر الفيديو
+if video_source:
+    with st.spinner(processing_msg):
+        time.sleep(1.5)
+        
+    st.header(t["coach_dash"])
+    
+    # طور قبل المباراة: السرية القصوى وإسقاط التوائم مع تشفير رادارات الاستكشاف
+    with st.expander(t["pre_match"], expanded=True):
+        st.header(t['shield_title'])
+        st.success(t['shield_success'])
+        
+    # طور أثناء المباراة: مستشار الأزمات للتعامل مع غرف الملابس والضغط
+    with st.expander(t["in_match"], expanded=True):
+        st.header(t['crisis_title'])
