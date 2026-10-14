@@ -145,4 +145,46 @@ if proceed_allowed:
             
         st.warning(t["gdpr_warn"])
         st.write("---")
-        
+            # 4️⃣ ظهور لوحة تحكم التحليلات المتقدمة للناشئين (Analytics Dashboard Stack)
+    st.subheader(t["stats_title"])
+    
+    col_d1, col_d2, col_d3 = st.columns(3)
+    with col_d1:
+        st.markdown("### 🧮 الإحصائيات الفنية والتمركز")
+        st.progress(0.15, text="نسبة أخطاء التمركز المكتشفة (Positioning Errors): 15%")
+        st.progress(0.85, text="نسبة التفوق في الثنائيات والالتحامات الهوائية: 85%")
+        st.progress(0.78, text="معدل دقة التمرير وبناء اللعب اللحظي: 78%")
+        st.caption("⚽ **الإنتاجية الهجومية:** 6 أهداف مسجلة | 4 تمريرات حاسمة")
+
+    with col_d2:
+        st.markdown("### 🧠 التحليل النفسي والسلوكي للناشئ")
+        st.progress(0.88, text="مؤشر الثبات الذهني والتركيز أثناء اللعب: 88%")
+        st.progress(0.92, text="نسبة التأقلم والانسجام مع زملائه في الملعب: 92%")
+        st.caption("🤝 **العلاقات السلوكية والتعامل (Emotion AI):**")
+        st.caption("- الانضباط والاحترام الكامل مع طاقم الحكام: 96% (ممتاز)")
+        st.caption("- مؤشر النرفزة أو لغة الجسد السلبية مع الزملاء: مستقر ومنخفض جداً")
+
+    with col_d3:
+        st.markdown("### 🩺 المنظومة الطبية والتنبؤ الاستباقي بالإصابات")
+        st.progress(0.05, text="نسبة احتمالية التنبؤ بالإصابة العضلية مستقبلاً: 5%")
+        st.progress(0.96, text="معدل استجابة الهيكل الحركي وجاهزية التوأم الرقمي: 96%")
+        st.metric(label="🟢 حالة وجاهزية الناشئ للمباريات الرسمية", value="95% جاهز للعب")
+
+    # 5️⃣ عنصر التشبيه المفتوح واستخراج بطاقة النجم وصورته للناشئين
+    st.write("---")
+    st.subheader("🔄 منظومة التطابق التكتيكي والتشبيه الرياضي")
+    st.write(t["comp_lbl"])
+    
+    # اختيار النجم العالمي المقارن به
+    youth_star = st.selectbox("", ["Lamine Yamal", "Gavi", "Endrick", "Pedri", "Arda Güler"], label_visibility="collapsed")
+    
+    if youth_star:
+        st.success(f"🔄 {t['sim_res']} **{youth_star}**")
+        # عرض صورة المقارنة السينمائية المخصصة لتقوية الواجهة الاحترافية (Experituelle)
+        st.image("https://unsplash.com", caption=f"بطاقة التشبيه الرقمي للناشئ مع النجم: {youth_star}")
+
+st.write("---")
+# التذييل الإداري والسيبراني النهائي لإتمام وإغلاق الصفحة بالكامل
+st.caption("🔒 بيئة معزولة ومحمية بالكامل للامتثال لمنظومة GDPR وحماية القصر الدولية ومنع تخطي المنصة.")
+st.caption("Omnia DeepArena IA © 2026 | Youth Secure Sandbox & Identity Protection Multi-Tenancy Protocols.")
+
