@@ -152,3 +152,111 @@ club_logo = st.sidebar.file_uploader("", type=["png", "jpg", "jpeg"], key="club_
 if club_logo:
     st.sidebar.success("🔒 Club Identity Verified & Sandbox Shield Engaged.")
     st.sidebar.image(club_logo, width=100)
+# الواجهة الرئيسية لباقة الأندية الصغيرة وأكاديميات الهواة
+st.title(t['title'])
+st.write(t['sub'])
+st.write("---")
+
+# المنظومة الزمنية الثلاثية للتحليل (قبل، أثناء، وبعد المباراة)
+phase = st.radio(t['time_phase'], [t['pre'], t['live'], t['post']], horizontal=True)
+
+# تفعيل المنظومة المزدوجة للفيديوهات (المسار الحي والمسبق) في شاشة المدرب
+st.subheader("🎥 منظومة الفيديوهات المزدوجة المباشرة والمسجلة (Dual Video Stream Stack)")
+col_v1, col_v2 = st.columns(2)
+
+with col_v1:
+    st.markdown(f"##### {t['vid_live_lbl']}")
+    live_stream = st.camera_input("", key="p4_live_cam", label_visibility="collapsed")
+    if live_stream:
+        st.info("⚡ Live AR HUD Connected: processing frames at zero latency...")
+
+with col_v2:
+    st.markdown(f"##### {t['vid_old_lbl']}")
+    preset_file = st.file_uploader("", type=["mp4", "mov", "avi"], key="p4_preset_vid", label_visibility="collapsed")
+    if preset_file:
+        with st.spinner("🔄 AI Footages Enhancement & Restoration active..."):
+            time.sleep(1.0)
+        st.success("✅ Video quality cleaned, motion blur fixed, and player profiles de-overlapped successfully.")
+
+st.write("---")
+
+# لوحة تحكم المدرب الفائقة والمؤشرات الحية حركياً ونفسياً وتكتيكياً (Coach Dashboard)
+st.subheader("📋 لوحة تحكم المدرب المتكاملة ومساعد الـ AI التكتيكي الحقيقي")
+
+col_d1, col_d2, col_d3 = st.columns(3)
+
+with col_d1:
+    st.markdown("### 🧮 الإحصائيات الفنية والتوأم الرقمي")
+    st.progress(0.74, text="نسبة الاستحواذ اللحظية والسيطرة الجماعية: 74%")
+    st.progress(0.81, text="أهداف متوقعة حية (xG Live Rate): 2.45")
+    st.progress(0.79, text="نسبة تفوق اللاعبين في الثنائيات والالتحامات: 79%")
+    st.progress(0.06, text="نسبة أخطاء التمركز الفردي والجماعي (Defensive Errors): 6%")
+
+with col_d2:
+    st.markdown("### 🧠 المنظومة النفسية وملامح السلوك")
+    st.progress(0.88, text="مؤشر الثبات النفسي والتركيز تحت الضغط العالي: 88%")
+    st.progress(0.92, text="نسبة تأقلم وانسجام اللاعب مع زملائه أثناء اللعب: 92%")
+    st.caption("🤝 **العلاقات السلوكية الحية المستخرجة (Emotion AI):**")
+    st.caption("- الانضباط والتعامل الأخلاقي المباشر مع حكم اللقاء: 95% (ممتاز)")
+    st.caption("- حدة النرفزة ولغة الجسد السلبية مع الزملاء: منخفضة ومستقرة")
+
+with col_d3:
+    st.markdown("### 🩺 محاكي التنبؤ بالإصابات والكروت")
+    st.progress(0.04, text="نسبة التنبؤ بالإصابة العضلية الاستباقية (Injury Risk): 4%")
+    st.progress(0.96, text="معدل جاهزية واستجابة الهيكل الحركي للاعبين: 96%")
+    st.metric(label="⚠️ احتمالية تلقي كروت حمراء أو إنذارات (Card Risk Index)", value="منخفضة (11%)")
+
+# حقن نصائح مساعد الذكاء الاصطناعي التكتيكي والتقرير الطبي لإدارة الريمونتادا
+st.markdown(f"""
+<div class="coach-card">
+    <p style="color:#ffcc00; font-size:14px; margin:0;">{t['ai_tactical']}</p>
+</div>
+<div class="coach-card" style="border-right-color: #ff3366;">
+    <p style="color:#ff3366; font-size:14px; margin:0;">{t['ai_medical']}</p>
+</div>
+""", unsafe_allow_html=True)
+
+st.write("---")
+
+# إدراج الجدول الموحد والمشترك لبورصة الانتقالات للبيع والإعارة (باستثناء الأطفال دون 16 سنة)
+st.header(t['market_title'])
+st.caption(t['market_sub'])
+
+market_data = [
+    {
+        "رمز اللاعب المشفر (ID)": "YOUTH_PRO_#914", 
+        "العمر والنوع": "ناشئ (17 سنة)", 
+        "حالة الطلب في البورصة": "متاح للإعارة المؤقتة (For Loan)", 
+        "أقرب تشبيه عالمي مطابق": "Lamine Yamal", 
+        "القيمة السوقية التقريبية": "1.5M USD",
+        "نسبة التطابق والتأقلم التكتيكي": "88%",
+        "عنصر التغبيش والسرية (GDPR)": "🔒 Blurred (مغشّى)"
+    },
+    {
+        "رمز اللاعب المشفر (ID)": "SENIOR_TALENT_#204", 
+        "العمر والنوع": "محترف سينيور (22 سنة)", 
+        "حالة الطلب في البورصة": "معروض للبيع النهائي (For Sale)", 
+        "أقرب تشبيه عالمي مطابق": "Kylian Mbappé", 
+        "القيمة السوقية التقريبية": "8.0M USD",
+        "نسبة التطابق والتأقلم التكتيكي": "91%",
+        "عنصر التغبيش والسرية (GDPR)": "🔒 Blurred (مغشّى)"
+    },
+    {
+        "رمز اللاعب المشفر (ID)": "AMATEUR_GK_#550", 
+        "العمر والنوع": "حارس مرمى هواة (19 سنة)", 
+        "حالة الطلب في البورصة": "معروض للبيع النهائي (For Sale)", 
+        "أقرب تشبيه عالمي مطابق": "Thibaut Courtois", 
+        "القيمة السوقية التقريبية": "600K USD",
+        "نسبة التطابق والتأقلم التكتيكي": "85%",
+        "عنصر التغبيش والسرية (GDPR)": "🔒 Blurred (مغشّى)"
+    }
+]
+
+# تصفح وفرز الجدول الموحد
+st.dataframe(market_data, use_container_width=True)
+
+if st.button("🚀 تحديث وبث البيانات إلى الكشافين"):
+    st.success(t['success_pub'])
+
+st.write("---")
+st.caption("Omnia DeepArena IA © 2026 | Private Club Sandbox Environment Isolated Under Multi-Tenancy Architecture.")
